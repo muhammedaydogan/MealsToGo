@@ -29,9 +29,9 @@ const RestaurantListContainer = styled(View)`
 const isAndroid = Platform.OS === "android";
 
 export const RestaurantsScreen = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchQuery, setSearchQuery] = useState("");
 
-  const onChangeSearch = (query) => setSearchQuery(query);
+  // const onChangeSearch = (query) => setSearchQuery(query);
 
   return (
     <SafeArea>
@@ -39,8 +39,8 @@ export const RestaurantsScreen = () => {
       <SearchContainer>
         <Searchbar
           placeholder="Search"
-          onChangeText={onChangeSearch}
-          value={searchQuery}
+          // onChangeText={onChangeSearch}
+          // value={searchQuery}
         />
       </SearchContainer>
       <RestaurantListContainer>
