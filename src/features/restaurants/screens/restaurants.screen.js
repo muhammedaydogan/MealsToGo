@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Platform, SafeAreaView, StatusBar, View } from "react-native";
 import { Searchbar } from "react-native-paper";
 import styled from "styled-components";
+
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
 const StatusBarCover = styled(View)`

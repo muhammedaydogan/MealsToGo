@@ -1,11 +1,12 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import { Card } from "react-native-paper";
 import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
 
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
+import { Spacer } from "../../../components/spacer/spacer.component";
 
 const RestaurantCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.bg.primary};
@@ -50,7 +51,7 @@ const SectionEnd = styled.View`
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = "Some Restaurant",
-    icon,
+    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
     photos = [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Lutece_French_Revolving_Restaurant_at_Canton_Tower_%2820180923183307%29.jpg/1200px-Lutece_French_Revolving_Restaurant_at_Canton_Tower_%2820180923183307%29.jpg",
     ],
@@ -61,7 +62,6 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.ceil(rating)));
-  console.log(ratingArray);
   return (
     <RestaurantCard elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
@@ -74,7 +74,17 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             ))}
           </Rating>
           <SectionEnd>
-            {isOpenNow && <SvgXml xml={open} width={30} height={30} />}
+            {isClosedTemporarily && (
+              <Text variant="label" style={{ color: "red" }}>
+                CLOSED TEMPORARILY
+              </Text>
+            )}
+            <Spacer position="left" size="medium">
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            </Spacer>
+            <Spacer position="left" size="medium">
+              <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+            </Spacer>
           </SectionEnd>
         </Section>
         <Address>{address}</Address>
