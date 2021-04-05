@@ -12,15 +12,9 @@ import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurant
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <>
       <RestaurantsScreen />
       <ExpoStatusBar style="auto" />
-    </View>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
