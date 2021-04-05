@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import {
-  Platform,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  View,
-} from "react-native";
+import { Platform, SafeAreaView, StatusBar, View } from "react-native";
 import { Searchbar } from "react-native-paper";
 import styled from "styled-components";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
 const StatusBarCover = styled(View)`
-  background-color: mediumvioletred;
   height: ${StatusBar.currentHeight}px;
 `;
 
@@ -25,14 +18,12 @@ const SafeArea = styled(SafeAreaView)`
 `;
 
 const SearchContainer = styled(View)`
-  padding: 16px;
-  background-color: mediumvioletred;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 const RestaurantListContainer = styled(View)`
   flex: 1;
-  padding: 16px;
-  background-color: indigo;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 const isAndroid = Platform.OS === "android";
