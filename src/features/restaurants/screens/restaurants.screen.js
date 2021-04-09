@@ -14,7 +14,11 @@ const SearchContainer = styled.View`
 `;
 
 const RestaurantList = styled(FlatList).attrs({
-  contentContainerStyle: { padding: 16 },
+  contentContainerStyle: {
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingBottom: 16,
+  },
 })`
   padding: ${(props) => props.theme.space[2]};
 `;
