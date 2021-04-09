@@ -11,13 +11,13 @@ import {
   Lato_400Regular,
   Lato_700Bold,
 } from "@expo-google-fonts/lato";
-
-import { theme } from "./src/infrastucture/theme";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
+
+import { theme } from "./src/infrastucture/theme";
 import { Text } from "./src/components/typography/text.component";
 import { SafeArea } from "./src/utils/safe-area.component";
-import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 

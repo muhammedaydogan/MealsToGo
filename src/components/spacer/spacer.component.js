@@ -1,6 +1,5 @@
 import React from "react";
-import { View } from "react-native";
-import styled, { useTheme } from "styled-components";
+import styled, { useTheme } from "styled-components/native";
 
 const sizeVariant = {
   small: 1,
