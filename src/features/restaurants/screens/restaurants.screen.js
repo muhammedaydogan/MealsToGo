@@ -8,6 +8,7 @@ import { RestaurantInfoCard } from "../components/restaurant-info-card.component
 import { SafeArea } from "../../../utils/safe-area.component";
 
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
+import { log } from "react-native-reanimated";
 
 const SearchContainer = styled.View`
   padding: ${(props) => props.theme.space[3]};
@@ -24,8 +25,8 @@ export const RestaurantsScreen = () => {
 
   // const onChangeSearch = (query) => setSearchQuery(query);
 
-  const restaurantContext = useContext(RestaurantsContext);
-  console.log(restaurantContext);
+  const { restaurants, isLoading, error } = useContext(RestaurantsContext);
+  console.log("error: " + error);
 
   return (
     <SafeArea>
@@ -37,12 +38,14 @@ export const RestaurantsScreen = () => {
         />
       </SearchContainer>
       <RestaurantList
-        data={restaurantContext.restaurants}
-        renderItem={() => (
-          <Spacer position="bottom" size="large">
-            <RestaurantInfoCard />
-          </Spacer>
-        )}
+        data={restaurants}
+        renderItem={({ item }) => {
+          return (
+            <Spacer position="bottom" size="large">
+              <RestaurantInfoCard restaurant={item} />
+            </Spacer>
+          );
+        }}
         keyExtractor={(item) => item.name}
       />
     </SafeArea>
