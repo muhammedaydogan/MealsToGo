@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { Text } from "../../components/typography/text.component";
 import { SafeArea } from "../../utils/safe-area.component";
-import { RestaurantsScreen } from "../../features/restaurants/screens/restaurants.screen";
+import { RestaurantsNavigator } from "./restaurants.navigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -52,7 +52,7 @@ export const AppNavigator = () => (
         inactiveTintColor: "gray",
       }}
     >
-      <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
+      <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
       <Tab.Screen name="Map" component={Settings} />
       <Tab.Screen name="Settings" component={Map} />
     </Tab.Navigator>
